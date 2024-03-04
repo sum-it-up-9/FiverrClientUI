@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newRequest = axios.create({
-  baseURL: "http://fiverr-api-alpha.vercel.app",
+  baseURL: "https://ecommercebackend-7wg2.onrender.com",
   withCredentials: true,
 });
 
