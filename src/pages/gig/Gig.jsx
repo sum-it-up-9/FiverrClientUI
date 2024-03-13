@@ -1,12 +1,15 @@
 import React from 'react';
 import './Gig.scss';
 import { Slider } from "infinite-react-carousel/lib";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import Reviews from "../../Components/reviews/Reviews";
+import { toast } from 'react-toastify';
 const Gig = () => {
   const { id } = useParams();
+
+  const navigate=useNavigate();
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["gig"],
@@ -31,6 +34,19 @@ const Gig = () => {
     enabled: !!userId,
   });
 
+  const makeRequest = async () => {
+    // try {
+    //   const res = await newRequest.post(
+    //     `/orders/create-payment-intent/${id}`
+    //   );
+      toast.success('Order placed succfully');
+      navigate('/');
+    // } catch (err) {
+    //   console.log(err);
+    //   toast.error('Operation failed, Please try after some time!')
+    // }
+  };
+
   return (
     <div className="gig">
       {isLoading ? (
@@ -40,9 +56,9 @@ const Gig = () => {
       ) : (
         <div className="container">
           <div className="left">
-            <span className="breadcrumbs">
-              Fiverr {">"} Graphics & Design {">"}
-            </span>
+            {/* <span className="breadcrumbs">
+              FreelanceGigs {">"} Graphics & Design {">"}
+            </span> */}
             <h1>{data.title}</h1>
             {isLoadingUser ? (
               "loading"
@@ -85,7 +101,7 @@ const Gig = () => {
                 <div className="user">
                   <img src={dataUser.img || "/img/noavatar.jpg"} alt="" />
                   <div className="info">
-                    <span>{dataUser.username}</span>
+                    <span><h2>{dataUser.username}</h2></span>
                     {!isNaN(data.totalStars / data.starNumber) && (
                       <div className="stars">
                         {Array(Math.round(data.totalStars / data.starNumber))
@@ -104,23 +120,23 @@ const Gig = () => {
                 <div className="box">
                   <div className="items">
                     <div className="item">
-                      <span className="title">From</span>
+                      <span className="title"><b>From</b></span>
                       <span className="desc">{dataUser.country}</span>
                     </div>
                     <div className="item">
-                      <span className="title">Member since</span>
+                      <span className="title"><b>Member since</b></span>
                       <span className="desc">Aug 2022</span>
                     </div>
                     <div className="item">
-                      <span className="title">Avg. response time</span>
+                      <span className="title"><b>Avg. response time</b></span>
                       <span className="desc">4 hours</span>
                     </div>
                     <div className="item">
-                      <span className="title">Last delivery</span>
+                      <span className="title"><b>Last delivery</b></span>
                       <span className="desc">1 day</span>
                     </div>
                     <div className="item">
-                      <span className="title">Languages</span>
+                      <span className="title"><b>Languages</b></span>
                       <span className="desc">English</span>
                     </div>
                   </div>
@@ -155,9 +171,9 @@ const Gig = () => {
                 </div>
               ))}
             </div>
-            <Link to={`/pay/${id}`}>
-            <button>Continue</button>
-            </Link>
+           
+            <button onClick={()=>{makeRequest()}}>Continue</button>
+         
           </div>
         </div>
       )}

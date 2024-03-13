@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
 import "./Login.scss";
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
@@ -16,8 +17,10 @@ const Login = () => {
     try {
       const res = await newRequest.post("/auth/login", { username, password });
       localStorage.setItem("currentUser", JSON.stringify(res.data));
-      navigate("/")
+      navigate("/");
+      toast.success('Login Successfull');
     } catch (err) {
+      toast.error('Login failed! wrong credentials');
       setError(err.response.data);
     }
   };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
 import newRequest from "../../utils/newRequest";
+import { toast } from "react-toastify";
 
 
 const Navbar = () => {
@@ -33,8 +34,10 @@ const Navbar = () => {
       await newRequest.post("/auth/logout");
       localStorage.setItem("currentUser", null);
       navigate("/");
+      toast.success('Logout Success!');
     } catch (err) {
       console.log(err);
+      toast.error('something went wrong');
     }
   };
 
@@ -43,7 +46,7 @@ const Navbar = () => {
       <div className="container">
         <div className="logo">
           <Link className="link" to="/">
-            <span className="text">fiverr</span>
+            <span className="text">FreelanceGigs</span>
           </Link>
           <span className="dot">.</span>
         </div>
@@ -66,9 +69,9 @@ const Navbar = () => {
                       </Link>
                     </>
                   )}
-                  <Link className="link" to="/orders">
+                  {/* <Link className="link" to="/orders">
                     Orders
-                  </Link>
+                  </Link> */}
                  
                   <Link className="link" onClick={handleLogout}>
                     Logout
@@ -78,7 +81,7 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <Link to="/login" className="link">Sign in</Link>
+              <Link to="/login" className="link"><button > Sign in</button></Link>
               <Link className="link" to="/register">
                 <button>Join</button>
               </Link>

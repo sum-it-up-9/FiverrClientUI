@@ -14,7 +14,8 @@ import Layout from './Layout'
 import Add from './pages/add/Add'
 import Pay from './pages/pay/Pay'
 import Success from './pages/success/Success'
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -79,6 +80,19 @@ function App() {
   return (
     <>
       <RouterProvider router={Router}/>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+
+        />
     </>
   )
 }

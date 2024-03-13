@@ -27,7 +27,7 @@ const Gigs = () => {
         }),
   });
 
-  console.log(data);
+ // console.log(data);
 
   const reSort = (type) => {
     setSort(type);
@@ -49,7 +49,7 @@ const Gigs = () => {
         <h1>AI Artists</h1> */}
         <h1>Available Gigs: Find Your Perfect Match Today!</h1>
         <p>
-          Explore the boundaries of art and technology with Liverr's AI artists
+          Explore the boundaries of art and technology with  AI artists
         </p>
         <div className="menu">
           <div className="left">
@@ -84,7 +84,7 @@ const Gigs = () => {
             : data.map((gig) => <GigCard key={gig._id} item={gig} />)}
         </div>
         {
-          data.length===0 && (<>
+          data && data.length===0 && (<>
             <h1>No gigs Found</h1>
           </>)
         }

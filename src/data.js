@@ -1,8 +1,8 @@
 export const cards = [
   {
     id: 1,
-    title: "AI Artists",
-    desc: "Add talent to AI",
+    title: "Web Design",
+    desc: "Add talent to team",
     img: "https://images.pexels.com/photos/7532110/pexels-photo-7532110.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
   },
   {
@@ -13,37 +13,37 @@ export const cards = [
   },
   {
     id: 3,
-    title: "WordPress",
+    title: "Web Design",
     desc: "Customize your site",
     img: "https://images.pexels.com/photos/4371669/pexels-photo-4371669.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
   },
   {
     id: 4,
-    title: "Voice Over",
-    desc: "Share your message",
+    title: "Web Design",
+    desc: "Custom dev",
     img: "https://images.pexels.com/photos/7608079/pexels-photo-7608079.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
   },
   {
     id: 5,
-    title: "Video Explainer",
+    title: "Web Design",
     desc: "Engage your audience",
     img: "https://images.pexels.com/photos/13388047/pexels-photo-13388047.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
   },
   {
     id: 6,
-    title: "Social Media",
+    title: "Web Design",
     desc: "Reach more customers",
     img: "https://images.pexels.com/photos/11378899/pexels-photo-11378899.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
   },
   {
     id: 7,
-    title: "SEO",
+    title: "Web Design",
     desc: "Unlock growth online",
     img: "https://images.pexels.com/photos/4820241/pexels-photo-4820241.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
   },
   {
     id: 8,
-    title: "Illustration",
+    title: "Web Design",
     desc: "Color you dreams",
     img: "https://images.pexels.com/photos/15032623/pexels-photo-15032623.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
   },

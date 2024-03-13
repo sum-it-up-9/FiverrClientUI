@@ -3,6 +3,7 @@ import upload from "../../utils/upload";
 import "./Register.scss";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Register() {
   const [file, setFile] = useState(null);
@@ -33,15 +34,17 @@ function Register() {
     e.preventDefault();
 
     const url = await upload(file);
-    console.log(url,'url');
+    //console.log(url,'url');
     try {
       await newRequest.post("/auth/register", {
         ...user,
         img: url,
       });
       navigate("/")
+      toast.success('You have successfully registered. Please log in to continue.')
     } catch (err) {
-      console.log(err);
+      toast.error('Please fill correct details');
+     // console.log(err);
     }
   };
   return (

@@ -5,6 +5,7 @@ import upload from "../../utils/upload";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Add = () => {
   const [singleFile, setSingleFile] = useState(undefined);
@@ -56,11 +57,25 @@ const Add = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["myGigs"]);
+      toast('Gig Added Succesfully!');
     },
   });
 
   const handleSubmit = (e) => {
+   // console.log(state);
     e.preventDefault();
+    if (
+      state.title.trim() === "" ||
+      state.cat.trim() === "" ||
+      state.desc.trim() === "" ||
+      state.shortTitle.trim() === "" 
+      // Assuming features is an array and it should not be empty
+    ) {
+      // If any required field is empty, display an error message or perform any necessary action
+      // For example, you can set an error state or show an alert
+      toast.error("Please fill in all fields.");
+      return;
+    }
     mutation.mutate(state);
      navigate("/mygigs")
   };

@@ -8,7 +8,7 @@ import newRequest from "../../utils/newRequest";
 
 function Mygigs() {
   const currentUser = getCurrentUser();
-  console.log(currentUser);
+ // console.log(currentUser);
 
   const queryClient = useQueryClient();
 

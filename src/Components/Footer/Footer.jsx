@@ -68,8 +68,8 @@ function Footer() {
         <hr />
         <div className="bottom">
           <div className="left">
-            <h2>liverr</h2>
-            <span>© Liverr International Ltd. 2023</span>
+            <h2>FreelanceGigs</h2>
+            <span>© FreelanceGigs International Ltd. 2023</span>
           </div>
           <div className="right">
             <div className="social">
@@ -83,10 +83,7 @@ function Footer() {
               <img src="/img/language.png" alt="" />
               <span>English</span>
             </div>
-            <div className="link">
-              <img src="/img/coin.png" alt="" />
-              <span>USD</span>
-            </div>
+           
             <img src="/img/accessibility.png" alt="" />
           </div>
         </div>
